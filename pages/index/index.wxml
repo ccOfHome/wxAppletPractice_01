@@ -1,0 +1,182 @@
+<!--index.wxml-->
+<view>第一章</view>
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <!--import/include引入源-->
+  <template name="test">
+    <view>132</view>
+    <view>456</view>
+    <view>789</view>
+  </template>
+
+  <view>abc</view>
+  <view>def</view>
+  <view>ghi</view>
+
+  <import src="../logs/logs.wxml"/>
+  <template name="test">
+    <view>132</view>
+    <view>456</view>
+    <view>789</view>
+  </template>
+  <view>abc</view>
+  <view>def</view>
+  <view>ghi</view>
+
+
+</view>
+<view>第二章</view>
+
+<view hidden='flase'>wcc2</view>
+<view hidden='true'>wcc1</view>
+<view hidden="{{flag}}">wcc</view>
+
+<view data-stuName="fd" bindtap="test">123</view>
+
+<view bindtap='test'>
+  <view bindtap='test1'>点击我</view>
+</view>
+<view bindtap='test'>
+  <view catchtap='test1'>点击我1</view>
+</view>
+
+<view class='content'>
+  <view class='content-item' style='background:skyblue;'>1</view>
+  <view class='content-item' style='background:red;'>2</view>
+  <view class='content-item' style='background:#999;'>3</view>
+</view>
+
+<button size='mini'>按钮1</button>
+<button size='default'>默认大小按钮</button>
+
+<button type='warn'>按钮2</button>
+<button type='primary'>按钮2</button>
+<button type=''>默认颜色按钮</button>
+
+<button type='primary' plain='false'>按钮3</button>
+
+<button type='primary' disabled='false'>按钮4</button>
+
+<button type='primary' loading='false'>按钮5</button>
+
+<button hover-class='btn'>按钮6</button>
+
+<input value='text' type=''></input>
+<input value='text' type='' password='tr'></input>
+<input value='number' type='number'></input>
+<input value='idcard' type='idcard'></input>
+<input value='digit' type='digit'></input>
+<input placeholder='122' placeholder-style='color:red;' type=''></input>
+
+<input value='text' type='' focus='{{flag}}'></input>
+<button bindtap='test2' type='primary'>获取</button>
+
+<input value='done' type='' confirm-type=''></input>
+<input value='send' type='' confirm-type='send'></input>
+<input value='search' type='' confirm-type='search'></input>
+<input value='next' type='' confirm-type='next'></input>
+<input value='go' type='' confirm-type='go'></input>
+
+<input value='test3' bindinput='test3'></input>
+
+<block wx:for="{{iconType}}" wx:for-item="icon">
+  <block wx:for="{{iconSize}}" wx:for-item="size">
+    <icon type='{{icon}}' size='{{size}}'></icon>
+  </block>
+  <view></view>
+</block>
+<icon type='success' size='26'></icon>
+<view></view>
+<text selectable='true' space='emsp'>反馈1</text>
+<view></view>
+<text selectable='true' space='ensp'>反馈2</text>
+<view></view>
+<text decode='true'>&nbsp; &lt; &gt; &amp; &apos; &ensp; &emsp;</text>
+
+<slider show-value></slider>
+<slider step='100' backgroundColor='red' activeColor='#000' disabled='false' min='40' max='200' show-value></slider>
+<slider bindchange='test4'></slider>
+<slider bindchanging='test5'></slider>
+
+<switch checked type='switch' color='red'></switch>
+<switch type='checkbox' color='#000' bindchange='test6'></switch>
+
+<radio-group bindchange='radio'>
+  <radio value='3' checked>男</radio>
+  <radio value='2' disabled='true'>女</radio>
+  <radio value='1' disabled='{{flag}}' color='red'>女</radio>
+</radio-group>
+
+<checkbox-group bindchange='box'>
+  <checkbox value='球' color='red'>球</checkbox>
+  <checkbox value='书'>书</checkbox>
+  <checkbox value='杯' disabled='ok'>杯</checkbox>
+</checkbox-group>
+
+<checkbox-group bindchange='box'>
+  <block wx:for="{{test}}" wx:for-item="test">
+    <block wx:for="{{color}}" wx:for-item="color">
+      <checkbox value='{{test}}' color='{{color}}'></checkbox>
+    </block>
+  </block>
+</checkbox-group>
+
+<label for='swi'>点击</label>
+<view>-------------</view>
+<radio id='888'></radio>
+<button id='but' bindtap='test'>123</button>
+<checkbox id='box'></checkbox>
+<switch id='swi'></switch>
+
+<label>
+  <radio></radio>
+  <button></button>
+  <view></view>
+  <checkbox></checkbox>
+  <view></view>
+  <switch></switch>
+  <view>点击选中</view>
+</label>
+
+<label for='in'>点击</label>
+<input id='in'></input>
+
+<textarea value='abcdefg' placeholder='123' placeholder-style='color:red;'>abcdefg</textarea>
+<textarea focus='' auto-height='' value='abcdefg' placeholder='123' placeholder-style='color:red;'/>
+
+
+<form bindsubmit='submit'>
+  <input value='123' name='input'></input>
+  <radio-group name='radio'>
+    <radio value='男'>男</radio>
+    <radio value='女'>女</radio>
+  </radio-group>
+  <checkbox-group name='checkbox'>
+    <checkbox value='球'>球</checkbox>
+    <checkbox value='毛'>毛</checkbox>
+    <checkbox value='汗'>汗</checkbox>
+  </checkbox-group>
+  <slider value='20' name='slider' show-value='true'></slider>
+  <switch checked='true'></switch>
+  <button form-type='reset' type='warn'>清除</button>
+  <button form-type='submit' type='primary'>提交</button>
+</form>
+
+<picker range='' value='3' range-key=''>
+
+</picker>
+
+
+<image src='{{src}}' binderror='error' bindload='load' mode='aspectFit'></image>
+
+
+<canvas canvas-id='my' bindtouchmove='move'></canvas>

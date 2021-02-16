@@ -1,0 +1,102 @@
+<view>第一章</view>
+
+<view>{{content}}</view>
+
+<view>{{num1}}+{{num2}}=={{num1+num2}}</view>
+
+<view hidden='{{flag? true:false}}'>{{user.name}}------{{user.age}}</view>
+
+
+
+<view wx:if="{{flag}}">123</view>
+<view wx:if="{{num1>3}}">大于3</view>
+<view wx:elif="{{num1<6}}">小于6</view>
+<view wx:else>小于3</view>
+
+<block wx:if="{{num2>3}}"> 
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>4</view>
+</block>
+
+<view wx:for="{{test}}">
+  <view>{{index}}------{{item.username}}</view>
+</view>
+
+
+<view wx:for="{{test}}" wx:for-index="i" wx:for-item="oo">
+  <view>{{i}}------{{oo.username}}</view>
+</view>
+
+
+<view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+  <view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="j">
+    <view wx:if="{{i<=j}}">
+      {{i}}*{{j}}={{i*j}}
+    </view>
+  </view>
+</view>
+
+<view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+  <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="j">
+    <view wx:if="{{i<=j}}">
+      {{i}}*{{j}}={{i*j}}
+    </view>
+  </block>
+</view>
+
+
+<template name="root">
+  <view>
+    {{item.username}}-----{{item.sex}}-----{{item.age}}
+  </view>
+</template>
+
+<view wx:for="{{user}}">
+  <template is="root" data="{{item}}"></template>
+</view>
+
+<template name="root1">
+  <view>
+   dsdksnds
+  </view>
+</template>
+
+<view wx:for="{{user}}">
+  <template is="root1"></template>
+</view>
+
+<import src="../index/index.wxml"/>
+<template is="test"></template>
+
+<include src="../index/index.wxml"/>
+<template is="test"/>
+<include src="../index/index.wxml"/>
+
+<import src="../index/index.wxml"/>
+<include src="../index/index.wxml"/>
+<template is="test"/>
+<template is="loop"/>
+
+
+<view bindtap="test_1">点击</view>
+
+<view bindtouchstart="test_2">点击1</view>
+
+<view>{{content}}</view>
+
+<view bindtap="test_3">点击3</view>
+
+<!--看调试target  -->
+<view bindtap="test_4" id="id" data-food-good="fg" data-rootRoot="rR">点击4</view>
+
+<view class="a b">
+  <text>111111111</text>
+</view>
+
+
+
+<view>第二章</view>
+
+<video></video>

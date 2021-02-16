@@ -1,0 +1,7 @@
+@import "../index/index.wxss";
+
+.a {
+  font-size: 200rpx;
+}
+
+
